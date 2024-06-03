@@ -34,10 +34,9 @@ resource "aws_s3_bucket_lifecycle_configuration" "main" {
   bucket = aws_s3_bucket.main.bucket
 
   rule {
-    id      = "log"
-    enabled = true
-    prefix  = "log/"
-    status  = "Enabled"
+    id     = "log"
+    prefix = "log/"
+    status = "Enabled"
 
     expiration {
       days = 90
