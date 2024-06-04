@@ -10,7 +10,7 @@ resource "aws_s3_bucket_versioning" "main" {
   bucket = aws_s3_bucket.main.bucket
 
   versioning_configuration {
-    status = var.versioning_enabled ? "Enabled" : "Suspended"
+    status = "Enabled"
   }
 }
 
@@ -58,6 +58,14 @@ resource "aws_s3_bucket" "log_bucket" {
         sse_algorithm = "AES256"
       }
     }
+  }
+}
+
+resource "aws_s3_bucket_versioning" "log_bucket" {
+  bucket = aws_s3_bucket.log_bucket.bucket
+
+  versioning_configuration {
+    status = "Enabled"
   }
 }
 
